@@ -98,10 +98,10 @@ function onConsole(teamMembers) {
 
 function printMembers(teamMembers, selector) {
     const rowElement = document.querySelector(`${selector}`);
-    const markupsList = memberMarkup (teamMembers);
-    console.log(markupsList)
-    for (let i = 0; i < markupsList.length; i++) {
-      const memberMarkup = markupsList[i];
+    const markupList = memberMarkup (teamMembers);
+    console.log(markupList)
+    for (let i = 0; i < markupList.length; i++) {
+      const memberMarkup = markupList[i];
       rowElement.append(memberMarkup);
     }
   }
