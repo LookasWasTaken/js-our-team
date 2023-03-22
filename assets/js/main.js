@@ -66,9 +66,25 @@ const teamMembers = [
     role: "Graphic Designer",
     photo: "./assets/img/barbara-ramos-graphic-designer.jpg",
   },
+  {
+    name: "Luca Piacentini",
+    role: "Junior Full-Stack Developer",
+    photo: "./assets/img/luca.jpeg",
+  },
+  {
+    name: "Alexandro Fioretti",
+    role: "Junior Full-Stack Developer",
+    photo: "./assets/img/alex.jpeg",
+  },
+  {
+    name: "Mattia Volpe",
+    role: "Senior Full-Stack Developer",
+    photo: "./assets/img/mattia.jpeg",
+  },
 ];
 
 onConsole(teamMembers);
+printMembers(teamMembers, ".container > .row");
 
 function onConsole(teamMembers) {
   for (let i = 0; i < teamMembers.length; i++) {
@@ -80,3 +96,34 @@ function onConsole(teamMembers) {
   }
 }
 
+function printMembers(teamMembers, selector) {
+    const rowElement = document.querySelector(`${selector}`);
+    const markupsList = memberMarkup (teamMembers);
+    console.log(markupsList)
+    for (let i = 0; i < markupsList.length; i++) {
+      const memberMarkup = markupsList[i];
+      rowElement.append(memberMarkup);
+    }
+  }
+
+function memberMarkup(teamMembers) {
+  const membersArray = [];
+  for (let i = 0; i < teamMembers.length; i++) {
+    const thisMember = teamMembers[i];
+    const member = document.createElement("div");
+    member.classList.add("col-4", "my-3");
+    member.innerHTML = `
+      <div class="card">
+        <div class="card-header text-center">
+          <strong>${thisMember.name}</strong>
+        </div>
+        <div class="card-body text-center">
+          <img src="${thisMember.photo}" class="img-card-top img-fluid mb-3 rounded-3">
+          <span>${thisMember.role}</span>
+        </div>
+      </div>`;
+    membersArray.push(member);
+    console.log("Members:", membersArray);
+  }
+  return membersArray;
+}
