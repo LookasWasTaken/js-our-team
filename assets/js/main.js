@@ -67,3 +67,16 @@ const teamMembers = [
     photo: "./assets/img/barbara-ramos-graphic-designer.jpg",
   },
 ];
+
+onConsole(teamMembers);
+
+function onConsole(teamMembers) {
+  for (let i = 0; i < teamMembers.length; i++) {
+    const thisMember = teamMembers[i];
+    console.log("## MEMBER ##");
+    console.log(`Name: ${thisMember.name}`);
+    console.log(`Role: ${thisMember.role}`);
+    console.log(`Photo: ${thisMember.photo}`);
+  }
+}
+
